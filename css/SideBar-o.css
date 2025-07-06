@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.dmenu {
+  width: 220px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #e0f7f4, #cdeae7);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow-y: auto;
+  height:800px
+}
+
+.dlogo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.dinesmart {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2f8c85;
+  text-align: center;
+    margin-left: 15px;
+    padding: 7px 4px;
+}
+
+
+.logo-icon {
+  font-size: 1.7rem;
+  color: #2f8c85;
+}
+
+.menu--list {
+  display: flex;
+  flex-direction: column;
+}
+.menu--list .ditem {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  color: #2f8c85;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+  font-size:  1.rem;
+  font-weight: 600;
+}
+.menu--list .ditem .icon {
+  font-size: 1rem;
+  margin-right: 14px;
+  color: #2f8c85;
+}
+
+.menu--list .ditem:hover {
+  background-color: #d7f0ed;
+  transform: translateX(6px);
+  color: #2f8c85;
+}
+
+

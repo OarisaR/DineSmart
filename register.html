@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  <link rel="stylesheet" href="./css/login.css" />
+</head>
+<body>
+
+  <div class="register-container">
+    <h1>Sign Up</h1>
+    <form>
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleName" />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required />
+      </div>
+
+      <div class="form-group">
+        <label for="dept">Department:</label>
+        <select id="dept" required>
+          <option value="" disabled selected>Select Department</option>
+          <option value="EEE">EEE</option>
+          <option value="CE">CE</option>
+          <option value="CSE">CSE</option>
+          <option value="ME">ME</option>
+          <option value="MIE">MIE</option>
+          <option value="BME">BME</option>
+          <option value="ETE">ETE</option>
+          <option value="URP">URP</option>
+          <option value="WRE">WRE</option>
+          <option value="PME">PME</option>
+          <option value="MME">MME</option>
+          <option value="Archi">Archi</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="studentID">Student ID:</label>
+        <input type="text" id="studentID" required />
+      </div>
+
+      
+
+      <div class="form-group">
+        <label>Residence Type:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="residenceType" value="Alloted" required /> Alloted</label>
+          <label><input type="radio" name="residenceType" value="Attached" required /> Attached</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" readonly />
+      </div>
+
+      <div class="form-group">
+        <label for="contactNo">Contact Number:</label>
+        <input type="tel" id="contactNo" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" required />
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

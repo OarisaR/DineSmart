@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transactions</title>
+  <link rel="stylesheet" href="../css/SideBar-o.css" />
+  <link rel="stylesheet" href="../css/transactions.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar will be injected -->
+  <div id="sidebar-container"></div>
+
+  <div class="main-content">
+    <h1>Transactions</h1>
+
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search by Student ID" />
+      <button onclick="handleSearch()">Search</button>
+      <select id="monthFilter" onchange="filterByMonth()">
+        <option value="">All Months</option>
+        <option value="1">January</option><option value="2">February</option>
+        <option value="3">March</option><option value="4">April</option>
+        <option value="5">May</option><option value="6">June</option>
+        <option value="7">July</option><option value="8">August</option>
+        <option value="9">September</option><option value="10">October</option>
+        <option value="11">November</option><option value="12">December</option>
+      </select>
+    </div>
+
+    <div id="noData" class="no-records">No payment record found.</div>
+
+    <table id="transactionsTable" style="display: none;">
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Student ID</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Method</th>
+        </tr>
+      </thead>
+      <tbody id="transactionBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const dummyData = [
+      {
+        transactionId: "TXN001",
+        studentId: "2104114",
+        firstName: "Tahmima",
+        middleName: "",
+        lastName: "Eid",
+        date: "2024-06-15",
+        amount: 1000,
+        paymentMethod: "Cash"
+      },
+      {
+        transactionId: "TXN002",
+        studentId: "2104074",
+        firstName: "Fawzia",
+        middleName: "",
+        lastName: "Maria",
+        date: "2024-07-10",
+        amount: 1200,
+        paymentMethod: "Bkash"
+      }
+    ];
+
+    function renderTable(data) {
+      const tbody = document.getElementById("transactionBody");
+      const table = document.getElementById("transactionsTable");
+      const noData = document.getElementById("noData");
+      tbody.innerHTML = "";
+
+      if (data.length === 0) {
+        table.style.display = "none";
+        noData.style.display = "block";
+        return;
+      }
+
+      noData.style.display = "none";
+      table.style.display = "table";
+
+      data.forEach(t => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${t.transactionId}</td>
+          <td>${t.studentId}</td>
+          <td>${[t.firstName, t.middleName, t.lastName].filter(Boolean).join(" ")}</td>
+          <td>${new Date(t.date).toLocaleDateString()}</td>
+          <td>${t.amount}</td>
+          <td>${t.paymentMethod}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function handleSearch() {
+      const keyword = document.getElementById("searchInput").value.trim();
+      const filtered = dummyData.filter(t => t.studentId.includes(keyword));
+      renderTable(filtered);
+    }
+
+    function filterByMonth() {
+      const month = document.getElementById("monthFilter").value;
+      const filtered = dummyData.filter(t =>
+        !month || new Date(t.date).getMonth() + 1 == parseInt(month)
+      );
+      renderTable(filtered);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTable(dummyData);
+      fetch('admin-sidebar.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('sidebar-container').innerHTML = html;
+        });
+    });
+  </script>
+</body>
+</html>

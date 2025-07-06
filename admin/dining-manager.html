@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dining Manager</title>
+  <link rel="stylesheet" href="../css/dining-manager.css" />
+  <link rel="stylesheet" href="../css/SideBar-o.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="dmenu">
+  <div class="dlogo">
+    <h2 class="dinesmart">DineSmart</h2>
+  </div>
+
+  <div class="menu--list">
+    <a class="ditem" href="admin-dashboard.html">
+      <i class="fas fa-home icon"></i> Dashboard
+    </a>
+    <a class="ditem" href="StudentManage.html">
+      <i class="fas fa-user icon"></i> Student Records
+    </a>
+    <a class="ditem" href="dining-manager.html">
+      <i class="fas fa-user-tie icon"></i> Dining Manager
+    </a>
+    <a class="ditem" href="transactions.html">
+      <i class="fas fa-wallet icon"></i> Transactions
+    </a>
+     <a class="ditem" href="../index.html">
+      <i class="fas fa-sign-out-alt icon"></i> Logout
+    </a>
+  </div>
+</div>
+
+
+
+
+  <div class="main-content">
+    <h1>Dining Manager</h1>
+
+    <div class="details-section">
+      <div class="card manager-card">
+        <h3>Dining Manager Details</h3>
+        <div class="manager-flex">
+          <div class="info">
+            <div><strong>Name:</strong> <span id="dm-name">Debarati Hoque Chakraborty</span></div>
+            <div><strong>Email:</strong> <span id="dm-email">u1904038@student.cuet.ac.bd</span></div>
+            <div><strong>Budget:</strong> <span id="dm-budget">70000</span></div>
+            <div><strong>Duration:</strong> <span id="dm-duration">1 month</span></div>
+          </div>
+          <img src="../images/user.jpg" alt="Dining Manager" class="dm-image" />
+        </div>
+      </div>
+
+      <div class="card chart-card">
+        <h3>Performance Metrics</h3>
+        <div class="chart-wrapper">
+          <canvas id="performanceChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="assign-section">
+      <div class="assign-header">
+        <h3>Assign Dining Manager</h3>
+        <input type="text" id="dmSearch" placeholder="Search by ID" />
+      </div>
+      <div class="assign-list" id="assignList"></div>
+    </div>
+
+    <div class="previous-section">
+      <h3>Previous Dining Managers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Month</th><th>Ratings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2104125</td><td>John Doe</td><td>October 2024</td><td>85%</td></tr>
+          <tr><td>2104131</td><td>Jane Smith</td><td>September 2024</td><td>90%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Performance Chart
+    const ctx = document.getElementById("performanceChart").getContext("2d");
+    new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: ["Food Waste", "Meal Redemption Rate", "Meal Cost Efficiency"],
+        datasets: [{
+          data: [10, 85, 90],
+          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: {
+              font: { size: 14 }
+            }
+          }
+        }
+      }
+    });
+
+    // Assignable Students
+    const assignableStudents = [
+      { studentID: 1904012, name: "Debarati Hoque Chakraborty" },
+      { studentID: 1904038, name: "Moumita Barua" },
+      { studentID: 2104125, name: "John Doe" },
+      { studentID: 2104126, name: "Sanjida Eva" }
+    ];
+
+    const assignList = document.getElementById("assignList");
+    const dmSearch = document.getElementById("dmSearch");
+
+    function renderAssignables(filter = "") {
+      assignList.innerHTML = "";
+      assignableStudents
+        .filter(s => s.studentID.toString().includes(filter))
+        .forEach((s) => {
+          const div = document.createElement("div");
+          div.className = "assign-item";
+          div.innerHTML = `
+            <span>(ID: ${s.studentID}) ${s.name}</span>
+            <button onclick="assignManager(${s.studentID})">Assign</button>
+          `;
+          assignList.appendChild(div);
+        });
+    }
+
+    dmSearch.addEventListener("input", () => {
+      renderAssignables(dmSearch.value.trim());
+    });
+
+    renderAssignables();
+
+    function assignManager(id) {
+      alert(`Student with ID ${id} has been assigned as Dining Manager!`);
+    }
+  </script>
+</body>
+</html>
+
+

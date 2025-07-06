@@ -1,0 +1,417 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.main-container {
+  margin-left: 270px; /* for sidebar */
+
+  background: #f5fdfc;
+  font-family: "Poppins", sans-serif;
+  color: #2f8c85;
+  min-height: 100vh;
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+body {
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+}
+
+.mealplan-section {
+  border-radius: 12px;
+  margin-top: -22px;
+}
+.mealplan-section h2 {
+  margin-bottom: 20px;
+  font-size: 2.3rem;
+}
+table {
+  width: 130%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+table th {
+  background-color: #2f8c85;
+  color: white;
+}
+
+table td {
+  background-color: #f9f9f9;
+}
+
+.meal-entry-card {
+  background-color: #e6f9f7;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+.meal-entry-card h4 {
+  margin-bottom: 12px;
+  color: #2f8c85;
+}
+
+.meal-entry-card label {
+  display: block;
+  margin: 8px 0 4px;
+  font-weight: bold;
+}
+
+.meal-entry-card input,
+.meal-entry-card select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 12px;
+}
+
+.meal-entry-card button {
+  width: 100%;
+  background-color: #2f8c85;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.meal-entry-card button:hover {
+  background-color: #227a75;
+}
+
+
+
+
+
+
+.m-meal-status-section {
+  padding: 20px 4px;
+  border-radius: 12px;
+}
+
+/* Header section with title and date input */
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.status-header h2 {
+  margin-bottom: 20px;
+  font-size: 2.3rem;
+}
+
+.date-picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 108px;
+}
+
+.date-picker label {
+  font-weight: 500;
+  color: #333;
+}
+
+.date-picker input[type="date"] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Filter and search bar styling */
+.status-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.status-controls select {
+  width: 150px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.status-controls select:focus {
+  outline: none;
+  border-color: #2f8c85;
+  box-shadow: 0 0 5px rgba(47, 140, 133, 0.4);
+}
+
+.search-wrapper {
+  position: relative;
+  flex-grow: 1;
+  min-width: 240px;
+}
+
+.search-wrapper i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 16px;
+}
+
+.search-wrapper input {
+  width: 79%;
+  padding: 10px 14px 10px 36px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-wrapper input:focus {
+  outline: none;
+  border-color: #2f8c85;
+  box-shadow: 0 0 5px rgba(47, 140, 133, 0.4);
+}
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#search-button {
+  padding: 8px 25px;
+  background-color: #237c6e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: #1d6a5f;
+}
+
+/* Table styling */
+.status-table {
+  width: 90%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.status-table thead th {
+  background-color: #2f8c85;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-table tbody td {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+/* Feedback Section container */
+.d-feedback-section {
+  border-radius: 12px;
+  margin-top: 22px;
+  margin-left: 19px;
+}
+
+
+/* Title */
+.d-feedback-section h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+
+/* Controls container */
+.feedback-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 12px; /* space between input and button */
+}
+
+/* Search input */
+#searchInput {
+  width: 78%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Reset button */
+#resetFiltersBtn {
+  padding: 8px 16px;
+  background-color: #227a75;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  font-family: "Poppins";
+}
+
+#resetFiltersBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Table wrapper for horizontal scroll on small screens */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* Table styles */
+.feedback-table {
+  width: 89%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.feedback-table thead {
+  background-color: #f1f1f1;
+}
+
+.feedback-table th,
+.feedback-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Set specific widths */
+.feedback-table th:nth-child(1),
+.feedback-table td:nth-child(1) {
+  width: 120px; /* Student ID */
+}
+
+.feedback-table th:nth-child(2),
+.feedback-table td:nth-child(2) {
+  width: 100px; /* Meal Type */
+}
+
+.feedback-table th:nth-child(3),
+.feedback-table td:nth-child(3) {
+  width: 120px; /* Date */
+}
+
+.feedback-table th:nth-child(4),
+.feedback-table td:nth-child(4) {
+  width: 80px; /* Rating */
+}
+
+.feedback-table th:nth-child(5),
+.feedback-table td:nth-child(5) {
+  min-width: 300px; /* Description wider for longer text */
+  white-space: normal;
+}.fmodal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* classic dark transparent overlay */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px); /* subtle blur behind modal */
+}
+
+.fmodal-overlay.show {
+  display: flex;
+}
+
+.fmodal-content {
+  background: #d7f0ed; 
+  padding: 25px 30px;
+  border-radius: 12px;
+  max-width: 520px;
+  width: 90%;
+  
+  color: #237c6e; 
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  z-index: 10000;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 1;
+}
+
+.fmodal-content textarea {
+  border: 1.5px solid #237c6e;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: #237c6e;
+  resize: vertical;
+  background: white;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+  font-family: inherit;
+}
+
+.fmodal-content button {
+  background-color: #237c6e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.fmodal-buttons{
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  margin-left: -8px;
+  margin-top: 15px;
+}
+.fmodal-content button:hover {
+  background-color: #1b5f4d;
+}
+
+.fmodal-content h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.fmodal-content p {
+  margin: 6px 0;
+  font-size: 1rem;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Plan</title>
+    <link rel="stylesheet" href="../css/SideBar.css" />
+
+    <link rel="stylesheet" href="../css/diningmealplan.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="dmenu">
+      <div class="dlogo">
+        <h2 class="dinesmart">DineSmart</h2>
+      </div>
+
+      <div class="menu--list">
+        <a href="DiningDash.html" class="ditem">
+          <i class="bi bi-speedometer2 icon"></i> Dashboard
+        </a>
+        <a href="DiningInventory.html" class="ditem">
+          <i class="bi bi-box-seam icon"></i> Inventory
+        </a>
+        <a href="mealplan.html" class="ditem">
+          <i class="bi bi-journal-check icon"></i> Meals
+        </a>
+        <a href="status.html" class="ditem">
+          <i class="bi bi-wallet2 icon"></i> Status
+        </a>
+        <a href="feedback.html" class="ditem">
+          <i class="bi bi-chat-dots icon"></i> Feedback
+        </a>
+
+        <a href="#" onclick="openModal(event)" class="ditem"
+          ><i class="bi bi-box-arrow-right icon"></i> Logout</a
+        >
+      </div>
+    </div>
+      <!-- Logout Modal -->
+      <div id="logoutModal" class="modal-overlay">
+        <div class="modal-content">
+          <h2>Are you sure you want to log out?</h2>
+          <button onclick="handleLogout()">Yes</button>
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="content-area">
+          <div class="content-area">
+  <!-- Feedback Section -->
+  <div class="d-feedback-section">
+    <h2>Student Feedback</h2>
+
+    <div class="feedback-controls">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search by Student ID..."
+      />
+      <button id="resetFiltersBtn">Reset Filters</button>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="feedback-table">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Meal Type</th>
+            <th>Date</th>
+            <th>Rating</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2104129</td>
+            <td>Lunch</td>
+            <td>2025-06-15</td>
+            <td>4</td>
+            <td>It was okay, but the portion size could have been bigger.</td>
+          </tr>
+          <tr>
+            <td>2104130</td>
+            <td>Dinner</td>
+            <td>2025-06-14</td>
+            <td>5</td>
+            <td>Excellent taste and good portion size.</td>
+          </tr>
+          <!-- Add more rows here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+
+
+    <div id="fmodal-overlay" class="fmodal-overlay">
+  <div id="fmodal-content" class="fmodal-content">
+    <h2>Respond to the Feedback</h2>
+    <p id="fmodal-student-id"></p>
+    <p id="fmodal-meal-type"></p>
+    <p id="fmodal-date"></p>
+    <p id="fmodal-rating"></p>
+    <p id="fmodal-description"></p>
+
+    <textarea id="fmodal-response-text" placeholder="Write your response here..." rows="4" style="width:100%;"></textarea>
+    <div class="fmodal-buttons">
+      <button id="fmodal-submit-response">Submit</button>
+      <button id="fmodal-cancel-response">Cancel</button>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const fmodalOverlay = document.getElementById("fmodal-overlay");
+  const fmodalContent = document.getElementById("fmodal-content");
+  const submitBtn = document.getElementById("fmodal-submit-response");
+  const cancelBtn = document.getElementById("fmodal-cancel-response");
+
+  const studentIdElem = document.getElementById("fmodal-student-id");
+  const mealTypeElem = document.getElementById("fmodal-meal-type");
+  const dateElem = document.getElementById("fmodal-date");
+  const ratingElem = document.getElementById("fmodal-rating");
+  const descriptionElem = document.getElementById("fmodal-description");
+  const responseText = document.getElementById("fmodal-response-text");
+
+  const feedbackRows = document.querySelectorAll(".feedback-table tbody tr");
+
+  feedbackRows.forEach(row => {
+    row.addEventListener("click", () => {
+      studentIdElem.textContent = "Student ID: " + row.cells[0].textContent;
+      mealTypeElem.textContent = "Meal Type: " + row.cells[1].textContent;
+      dateElem.textContent = "Date: " + row.cells[2].textContent;
+      ratingElem.textContent = "Rating: " + row.cells[3].textContent;
+      descriptionElem.textContent = "Description: " + row.cells[4].textContent;
+
+      responseText.value = "";
+
+      fmodalOverlay.classList.add("show"); // Show modal
+    });
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    fmodalOverlay.classList.remove("show"); // Hide modal
+  });
+
+  submitBtn.addEventListener("click", () => {
+    const response = responseText.value.trim();
+    if (!response) {
+      alert("Please write a response before submitting.");
+      return;
+    }
+    alert("Response submitted:\n\n" + response);
+    fmodalOverlay.classList.remove("show");
+  });
+
+  // Close modal if clicking outside modal content
+  fmodalOverlay.addEventListener("click", (e) => {
+    if (e.target === fmodalOverlay) {
+      fmodalOverlay.classList.remove("show");
+    }
+  });
+});
+
+</script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

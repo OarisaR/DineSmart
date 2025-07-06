@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dining Dashboard</title>
+  <link rel="stylesheet" href="../css/DiningDash.css">
+  <link rel="stylesheet" href="../css/Sidebar.css"> <!-- Link to the sidebar CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  <!-- Link to the Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="dmenu">
+    <div class="dlogo">
+      <h2 class="dinesmart">DineSmart</h2>
+    </div>
+
+    <div class="menu--list">
+         <a href="DiningDash.html" class="ditem">
+          <i class="bi bi-speedometer2 icon"></i> Dashboard
+        </a>
+        <a href="DiningInventory.html" class="ditem">
+          <i class="bi bi-box-seam icon"></i> Inventory
+        </a>
+        <a href="mealplan.html" class="ditem">
+          <i class="bi bi-journal-check icon"></i> Meals
+        </a>
+        <a href="status.html" class="ditem">
+          <i class="bi bi-wallet2 icon"></i> Status
+        </a>
+        <a href="feedback.html" class="ditem">
+          <i class="bi bi-chat-dots icon"></i> Feedback
+        </a>
+
+        <a href="#" onclick="openModal(event)" class="ditem"
+          ><i class="bi bi-box-arrow-right icon"></i> Logout</a
+        >
+       </div>
+  </div>
+<div id="logoutModal" class="modal-overlay">
+        <div class="modal-content">
+          <h2>Are you sure you want to log out?</h2>
+          <button onclick="handleLogout()">Yes</button>
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+  <!-- Main Content Area -->
+  <div class="content">
+    <!-- Header -->
+    <div class="content--header">
+      <h1 class="header-title">Dashboard</h1>
+      <button class="access-button" id="returnButton">Back to Student Profile</button>
+    </div>
+    
+    <!-- Quick Stats -->
+    
+<div class="quick-stats">
+  <div class="stat-card">
+    <i class="icon fas fa-utensils"></i>
+    <div class="stat-content">
+      <span class="label">Meals Today</span>
+      <span class="value">85</span>
+    </div>
+  </div>
+  <div class="stat-card">
+    <i class="icon fas fa-box-open"></i>
+    <div class="stat-content">
+      <span class="label">Low Stock Items</span>
+      <span class="value">3</span>
+    </div>
+  </div>
+  <div class="stat-card">
+    <i class="icon fas fa-comment-dots"></i>
+    <div class="stat-content">
+      <span class="label">Pending Feedback</span>
+      <span class="value">7</span>
+    </div>
+  </div>
+  <div class="stat-card">
+    <i class="icon fas fa-calendar-day"></i>
+    <div class="stat-content">
+      <span class="label">Next Special Meal</span>
+      <span class="value">Dec 1</span>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      <div class="charts">
+        <div class="chart-card">
+          <h3>Meal Redemption Trends</h3>
+          <canvas id="lineChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Inventory Usage Insights</h3>
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+
+      <div class="widgets">
+        <div class="widget-card donut">
+          <h3>Meal Redemption Progress</h3>
+          <canvas id="donutChart"></canvas>
+        </div>
+
+        <div class="widget-card feedback-card">
+          <h3 class="feedback-header">Pending Feedback</h3>
+          <ul class="feedback-list">
+            <li>
+              <span class="feedback-name">John Doe:</span>
+              <span class="feedback-comment">"Food was great!"</span>
+            </li>
+            <li>
+              <span class="feedback-name">Jane Smith:</span>
+              <span class="feedback-comment">"More variety, please."</span>
+            </li>
+            <li>
+              <span class="feedback-name">Dipan Orni:</span>
+              <span class="feedback-comment">"No salt in eggs!"</span>
+            </li>
+            <li>
+              <span class="feedback-name">Oarisa R:</span>
+              <span class="feedback-comment">"No pumpkin please!"</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/scripto.js"></script>
+   <script src = "../js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

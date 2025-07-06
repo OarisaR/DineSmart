@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Plan</title>
+    <link rel="stylesheet" href="../css/SideBar.css" />
+    <link rel="stylesheet" href="../css/student.css" />
+    <link rel="stylesheet" href="../css/diningmealplan.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="dmenu">
+      <div class="dlogo">
+        <h2 class="dinesmart">DineSmart</h2>
+      </div>
+
+      <div class="menu--list">
+         <a href="DiningDash.html" class="ditem">
+          <i class="bi bi-speedometer2 icon"></i> Dashboard
+        </a>
+        <a href="DiningInventory.html" class="ditem">
+          <i class="bi bi-box-seam icon"></i> Inventory
+        </a>
+        <a href="mealplan.html" class="ditem">
+          <i class="bi bi-journal-check icon"></i> Meals
+        </a>
+        <a href="status.html" class="ditem">
+          <i class="bi bi-wallet2 icon"></i> Status
+        </a>
+        <a href="feedback.html" class="ditem">
+          <i class="bi bi-chat-dots icon"></i> Feedback
+        </a>
+
+        <a href="#" onclick="openModal(event)" class="ditem"
+          ><i class="bi bi-box-arrow-right icon"></i> Logout</a
+        >
+       </div>
+    </div>
+      <!-- Logout Modal -->
+      <div id="logoutModal" class="modal-overlay">
+        <div class="modal-content">
+          <h2>Are you sure you want to log out?</h2>
+          <button onclick="handleLogout()">Yes</button>
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="content-area">
+          <div class="mealplan-section">
+  <h2>Meal Planning</h2>
+
+  <!-- Weekly Meal Plan Table -->
+  <h3>Weekly Meal Plan</h3>
+  <table id="mealTable">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Lunch</th>
+        <th>Dinner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Generate 7 empty rows -->
+      <script>
+        const today = new Date();
+        const mealRows = Array.from({ length: 7 }, (_, i) => {
+          const d = new Date(today);
+          d.setDate(today.getDate() + i);
+          const dateStr = d.toISOString().split("T")[0];
+          return `<tr data-date="${dateStr}">
+              <td>${dateStr}</td>
+              <td class="lunch">Unplanned</td>
+              <td class="dinner">Unplanned</td>
+            </tr>`;
+        }).join("");
+        document.write(mealRows);
+      </script>
+    </tbody>
+  </table>
+
+  <!-- Meal Entry Card -->
+  <div class="meal-entry-card">
+    <h4>Add Meal</h4>
+    <label for="meal-date">Date:</label>
+    <input type="date" id="meal-date" />
+
+    <label for="meal-type">Meal Type:</label>
+    <select id="meal-type">
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+    </select>
+
+    <label for="meal-dish">Dish:</label>
+    <input type="text" id="meal-dish" placeholder="Enter dish name" />
+
+    <button onclick="addMeal()">Add Meal</button>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+    <script>
+  function addMeal() {
+    const date = document.getElementById("meal-date").value;
+    const type = document.getElementById("meal-type").value;
+    const dish = document.getElementById("meal-dish").value;
+
+    if (!date || !dish) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    const row = document.querySelector(`tr[data-date="${date}"]`);
+    if (!row) {
+      alert("Selected date is out of this week's range.");
+      return;
+    }
+
+    const cell = row.querySelector(`.${type}`);
+    cell.textContent = dish;
+  }
+</script>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

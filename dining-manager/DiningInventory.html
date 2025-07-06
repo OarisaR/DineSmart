@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dining Inventory</title>
+  <link rel="stylesheet" href="../css/DiningInventory.css">
+  <link rel="stylesheet" href="../css/DiningDash.css">
+  <link rel="stylesheet" href="../css/Sidebar.css">
+  <!-- Google Fonts link for Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="dmenu">
+    <div class="dlogo">
+      
+      <h2 class="dinesmart">DineSmart</h2>
+    </div>
+
+    <div class="menu--list">
+         <a href="DiningDash.html" class="ditem">
+          <i class="bi bi-speedometer2 icon"></i> Dashboard
+        </a>
+        <a href="DiningInventory.html" class="ditem">
+          <i class="bi bi-box-seam icon"></i> Inventory
+        </a>
+        <a href="mealplan.html" class="ditem">
+          <i class="bi bi-journal-check icon"></i> Meals
+        </a>
+        <a href="status.html" class="ditem">
+          <i class="bi bi-wallet2 icon"></i> Status
+        </a>
+        <a href="feedback.html" class="ditem">
+          <i class="bi bi-chat-dots icon"></i> Feedback
+        </a>
+
+        <a href="#" onclick="openModal(event)" class="ditem"
+          ><i class="bi bi-box-arrow-right icon"></i> Logout</a
+        >
+       </div>
+  </div>
+<div id="logoutModal" class="modal-overlay">
+        <div class="modal-content">
+          <h2>Are you sure you want to log out?</h2>
+          <button onclick="handleLogout()">Yes</button>
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+  <!-- Main Content -->
+  <div class="content">
+    <!-- Header -->
+    <div class="content--header">
+      <h1 class="header-title">Dining Inventory</h1>
+      <p class="header-subtitle">
+        Keep track of your stock efficiently and effortlessly!
+      </p>
+    </div>
+
+    <!-- Inventory Table -->
+    <div class="inventory-table poppy-card">
+      <h2>Current Inventory</h2>
+      <table class="inventory-table-container">
+        <thead class="inventory-table-header">
+          <tr>
+            <th>Item Name</th>
+            <th>Stock Remaining</th>
+            <th>Stock Unit</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="inventoryTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Add Inventory Section -->
+    <div class="add-inventory poppy-card">
+      <h2>Add/Update Inventory</h2>
+      <form id="addInventoryForm">
+        <div class="form-group">
+          <label>Item Name:</label>
+          <input type="text" name="name" placeholder="E.g. Sugar" required />
+        </div>
+        <div class="form-group">
+          <label>Stock:</label>
+          <input type="number" name="stock" placeholder="E.g. 25" required />
+        </div>
+        <div class="form-group">
+          <label>Reorder Level:</label>
+          <input type="number" name="reorderLevel" placeholder="E.g. 10" required />
+        </div>
+        <div class="form-group">
+          <label>Stock Unit:</label>
+          <input type="text" name="stockUnit" placeholder="E.g. kg, liters" required />
+        </div>
+        <button type="submit" class="add-btn">Add Item</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/DiningInventory.js"></script>
+  <script src = "../js/script.js"></script>
+</body>
+</html>
+
+
+
+

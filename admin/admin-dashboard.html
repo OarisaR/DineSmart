@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+
+  <!-- ✅ Google Font for Sidebar -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- ✅ Stylesheets -->
+  <link rel="stylesheet" href="../css/AdminDashboard.css">
+  <link rel="stylesheet" href="../css/SideBar-o.css">
+
+  <!-- ✅ Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ✅ Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- ✅ Sidebar will load here dynamically -->
+  <div id="sidebar-container"></div>
+
+  <!-- ✅ Main Dashboard Content -->
+  <div class="adashboard">
+    <h1>Admin Dashboard</h1>
+
+    <div class="profile-section">
+      <div class="profile-left">
+        <img src="../images/Tapashi_Rabeya_Hall.jpg" alt="Profile" class="hall-image">
+        <div class="hall-details">
+          <h2 class="hall-name">Tapashi Rabeya Hall</h2>
+          <ul class="hall-info-list">
+            <li class="hall-info-item">
+              <i class="fas fa-envelope hall-icon"></i>
+              <span class="email">Email: tapashirabeyahall@cuet.ac.bd</span>
+            </li>
+            <li class="hall-info-item">
+              <i class="fas fa-phone hall-icon"></i>
+              <span class="phone">Contact: 01432109876</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-overview">
+      <div class="stat-card"><div class="icon"><i class="fas fa-users"></i></div><h3>Total Users</h3><p>500</p></div>
+      <div class="stat-card"><div class="icon"><i class="fas fa-dollar-sign"></i></div><h3>Total Revenue</h3><p>$8,542</p></div>
+      <div class="stat-card"><div class="icon"><i class="fas fa-user-check"></i></div><h3>Active Students</h3><p>321</p></div>
+      <div class="stat-card"><div class="icon"><i class="fas fa-tasks"></i></div><h3>Pending Requests</h3><p>45</p></div>
+    </div>
+
+    <div class="chart-section">
+      <div class="line-chart">
+        <h3 class="chart-title">Total Meals Taken This Week</h3>
+        <canvas id="lineChart" width="737" height="230"></canvas>
+      </div>
+      <div class="donut-chart">
+        <h4>Active vs Non-active Users</h4>
+        <canvas id="donutChart" width="220" height="220"></canvas>
+      </div>
+    </div>
+
+    <div class="bottom-charts">
+      <div class="bar-chart">
+        <h4>Meals Redeemed Over Past Months</h4>
+        <canvas id="barChart" width="481" height="340"></canvas>
+      </div>
+      <div class="recent-feedback">
+        <h4>Recent Feedback</h4>
+        <ul>
+          <li class="feedback-item">
+            <div class="feedback-info">
+              <div class="feedback-student">
+                <div class="student-id">#2104114</div>
+                <div class="student-name">Tahmima Eid</div>
+              </div>
+              <div class="feedback-date">10:30 AM</div>
+              <div class="feedback-message">"The food quality has been great!"</div>
+            </div>
+          </li>
+          <li class="feedback-item">
+            <div class="feedback-info">
+              <div class="feedback-student">
+                <div class="student-id">#2104074</div>
+                <div class="student-name">Fawzia Maria</div>
+              </div>
+              <div class="feedback-date">11:00 AM</div>
+              <div class="feedback-message">"Could we have more vegetarian options?"</div>
+            </div>
+          </li>
+          <li class="feedback-item">
+            <div class="feedback-info">
+              <div class="feedback-student">
+                <div class="student-id">#2104126</div>
+                <div class="student-name">Sanjida Eva</div>
+              </div>
+              <div class="feedback-date">12:15 PM</div>
+              <div class="feedback-message">"The serving time could be a bit faster."</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Load Sidebar HTML -->
+  <script>
+    fetch('admin-sidebar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('sidebar-container').innerHTML = html;
+      });
+  </script>
+
+  <!-- ✅ Your Script for Charts -->
+  <script src="../js/scripto.js"></script>
+
+</body>
+</html>
+
+

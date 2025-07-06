@@ -1,0 +1,215 @@
+/* Import Poppins font */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+button {
+  outline: none;
+  border: none;
+}
+
+/* Sidebar Container */
+.dmenu {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #e0f7f4, #cdeae7);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow-y: auto;
+  height:800px
+}
+
+/* Logo Section */
+.dlogo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.dinesmart {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2f8c85;
+  text-align: center;
+    margin-left: 15px;
+    padding: 7px 4px;
+}
+
+/* Menu Items */
+.menu--list {
+  display: flex;
+  flex-direction: column;
+}
+.menu--list .ditem {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  color: #2f8c85;
+  
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+  font-size: 16.5px;
+  font-weight: 600;
+}
+.menu--list .ditem .icon {
+  font-size: 1.5rem;
+  margin-right: 14px;
+  color: #2f8c85;
+}
+
+.menu--list .ditem:hover {
+  background-color: #d7f0ed;
+  transform: translateX(6px);
+  color: #2f8c85;
+}
+
+
+.menu--list .ditem.active {
+  background-color: #b5e0d5;
+  font-weight: 600;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-content {
+  background: #2f8c85;
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+}
+.modal-content button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background-color: #d7f0ed;
+  color: #2f8c85;
+  margin: 0 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.modal-content button:hover {
+  background-color: #b5d8cd;
+  transform: scale(1.05);
+}
+
+
+
+/* PROFILE CARD POSITIONED TO THE RIGHT WITH MARGIN */
+
+
+/* Card Styling */
+.profile-card {
+  background-color: #f5fdfc;
+  padding: 20px;
+   position: fixed;
+  top: 45px;
+  right: 20px; 
+  height: 550px;
+  width: 300px;
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  box-sizing: border-box;
+  z-index: 1000;
+
+  /* Remove any height */
+  height: auto; /* or simply no height property */
+  max-height: calc(100vh - 60px); /* optional: max height relative to viewport */
+  overflow: hidden; /* hide any overflow */
+}
+
+/*Profile Logo */
+.profile-logo {
+  width: 130px; 
+  height: 130px;
+  border-radius: 40%; 
+  overflow: hidden;
+  display: inline-block; 
+  background-color: #f0f0f0; 
+  margin-left:70px;
+  margin-bottom: 20px;
+}
+
+.profile-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+
+/* Title */
+.profile-header {
+  height: 60px;
+  background-color: #2f8c85;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  margin-bottom: 70px;
+  justify-content: center; 
+  align-items: center;     
+}
+
+.profile-header h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin: 0; 
+
+}
+
+/* Info Grid */
+.profile-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+/* Labels & Values */
+.info-label {
+  font-weight: 600;
+  color: #2f8c85;
+}
+
+.info-value {
+  color: #444;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar</title>
+   <link rel="stylesheet" href="../css/SideBar.css" />
+<link rel="stylesheet" href="../css/student.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+   
+  </head>
+  <body>
+    <div class="dmenu">
+      <div class="dlogo">
+        <h2 class="dinesmart">DineSmart</h2>
+      </div>
+
+      <div class="menu--list">
+        <a href="student.html" class="ditem"
+          ><i class="bi bi-house-door icon"></i> Dashboard</a
+        >
+        <a href="mealcalender.html" class="ditem"
+          ><i class="bi bi-calendar-week icon"></i> Meal Calendar</a
+        >
+        <a href="student_history.html" class="ditem"
+          ><i class="bi bi-clock-history icon"></i> History</a
+        >
+        <a href="payment.html" class="ditem"
+          ><i class="bi bi-credit-card icon"></i> Payment</a
+        >
+        <a href="student_feedback.html" class="ditem"
+          ><i class="bi bi-chat-left-text icon"></i> Feedback</a
+        >
+        <a href="settings.html" class="ditem"
+          ><i class="bi bi-gear icon"></i> Settings</a
+        >
+
+        <a href="#" onclick="openModal(event)" class="ditem"
+          ><i class="bi bi-box-arrow-right icon"></i> Logout</a
+        >
+      </div>
+    </div>
+
+    <!-- Logout Modal -->
+    <div id="logoutModal" class="modal-overlay">
+      <div class="modal-content">
+        <h2>Are you sure you want to log out?</h2>
+        <button onclick="handleLogout()">Yes</button>
+        <button onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="content-area">
+        <div class="calendar-section">
+          <h2>Meal Calendar</h2>
+          <div class="calendar" id="calendar"></div>
+          <div id="mealSelection" class="meal-selection" style="display:none;">
+            <h3>Select Meals for <span id="selectedDate"></span></h3>
+            <label><input type="checkbox" id="lunchCheckbox" /> Lunch</label>
+            <label><input type="checkbox" id="dinnerCheckbox" /> Dinner</label>
+            <button onclick="submitMealSelection()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-header">
+        <h2>Profile</h2>
+      </div>
+      <div class="profile-logo">
+        <img src="../images/userlogo.png" alt="User Logo" />
+      </div>
+      <div class="profile-content">
+        <div class="profile-info">
+          <div class="info-label">ID:</div>
+          <div class="info-value">2104126</div>
+
+          <div class="info-label">Major:</div>
+          <div class="info-value">Computer Science</div>
+
+          <div class="info-label">DOB:</div>
+          <div class="info-value">15 May 1999</div>
+
+          <div class="info-label">Hall:</div>
+          <div class="info-value">Tapashi Rabeya Hall</div>
+
+          <div class="divider" style="grid-column: 1 / span 2"></div>
+
+          <div class="info-label">Room:</div>
+          <div class="info-value">215</div>
+
+          <div class="info-label">Contact:</div>
+          <div class="info-value">01569871526</div>
+
+          <div class="info-label">Email:</div>
+          <div class="info-value">u2104126@student.cuet.ac.bd</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const calendar = document.getElementById("calendar");
+      const mealSelection = document.getElementById("mealSelection");
+      const lunchCheckbox = document.getElementById("lunchCheckbox");
+      const dinnerCheckbox = document.getElementById("dinnerCheckbox");
+      const selectedDate = document.getElementById("selectedDate");
+
+      for (let i = 1; i <= 30; i++) {
+        const day = document.createElement("div");
+        day.className = "calendar-day";
+        day.textContent = `July ${i}`;
+        day.addEventListener("click", () => {
+          lunchCheckbox.checked = false;
+          dinnerCheckbox.checked = false;
+          selectedDate.textContent = `July ${i}`;
+          mealSelection.style.display = "block";
+        });
+        calendar.appendChild(day);
+      }
+
+      function submitMealSelection() {
+        alert(
+          `Lunch: ${lunchCheckbox.checked ? "On" : "Off"}, Dinner: ${dinnerCheckbox.checked ? "On" : "Off"}`
+        );
+      }
+
+       
+    </script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
